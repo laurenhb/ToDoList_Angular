@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+    </head>
+    <body ng-app="ToDo" ng-controller="ToDo as td">
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listItem in td.listArray">
+                    <td>{{listItem.id}}</td>
+                    <td><span ng-hide="listItem.id === td.editMode">{{listItem.title}}</span> <input ng-show="listItem.id === td.editMode" ng-model="td.editListItem.title"></input></td>
+                    <td><span ng-hide="listItem.id === td.editMode">{{listItem.description}}</span> <input ng-show="listItem.id === td.editMode" ng-model="td.editListItem.description"></input></td>
+                    <td><button type="button" class="btn btn-warning" ng-show="listItem.id !== td.editMode" ng-click="td.editItem(listItem)">Edit</button>
+                        <button type="button" class="btn btn-success" ng-show="listItem.id === td.editMode" ng-click="td.saveEdit(listItem.id)">Save</button></td>
+                    <td><button type="button" class="btn btn-danger" ng-click="td.deleteItem(listItem.id)">Delete</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input placeholder="Title" ng-model="td.newListItem.title"></input></td>
+                    <td><input placeholder="Description" ng-model="td.newListItem.description"></input></td>
+                    <td><button type="button" class="btn btn-primary" ng-click="td.addItem()">Add Item</button></td>
+                    <td><button type="button" class="btn btn-primary" ng-click=td.noEditMode()>Cancel Editing</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="src/app.js"></script>
+        <script type="text/javascript" src="src/controllers.js"></script>
+        <script type="text/javascript" src="src/services.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "ToDoList_Angular",
+  "authors": [
+    "laurenhb"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap": "~3.3.6"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}
