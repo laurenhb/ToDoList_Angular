@@ -1,0 +1,62 @@
+<!-- TO-DO LIST -->
+<span ng-app="routerApp">
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="listItem in td.listArray">
+                <td>{{listItem.id}}</td>
+                <td><span ng-hide="listItem.id === td.editMode">{{listItem.title}}</span> <input ng-show="listItem.id === td.editMode" ng-model="td.editListItem.title"></input></td>
+                <td><span ng-hide="listItem.id === td.editMode">{{listItem.description}}</span> <input ng-show="listItem.id === td.editMode" ng-model="td.editListItem.description"></input></td>
+                <td><button type="button" class="btn btn-warning" ng-show="listItem.id !== td.editMode" ng-click="td.editItem(listItem)">Edit</button>
+                    <button type="button" class="btn btn-success" ng-show="listItem.id === td.editMode" ng-click="td.saveEdit(listItem.id)">Save</button></td>
+                <td><button type="button" class="btn btn-danger" ng-click="td.deleteItem(listItem.id)">Delete</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input placeholder="Title" ng-model="td.newListItem.title"></input></td>
+                <td><input placeholder="Description" ng-model="td.newListItem.description"></input></td>
+                <td><button type="button" class="btn btn-primary" ng-click="td.addItem()">Add Item</button></td>
+                <td><button type="button" class="btn btn-primary" ng-click=td.noEditMode()>Cancel Editing</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</span>
+
+<!-- <table class="table table-striped">
+    <thead class="thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="listItem in ToDo.listArray">
+            <td>{{listItem.id}}</td>
+            <td><span ng-hide="listItem.id === ToDo.editMode">{{listItem.title}}</span> <input ng-show="listItem.id === ToDo.editMode" ng-model="ToDo.editListItem.title"></input></td>
+            <td><span ng-hide="listItem.id === ToDo.editMode">{{listItem.description}}</span> <input ng-show="listItem.id === ToDo.editMode" ng-model="ToDo.editListItem.description"></input></td>
+            <td><button type="button" class="btn btn-warning" ng-show="listItem.id !== ToDo.editMode" ng-click="ToDo.editItem(listItem)">Edit</button>
+                <button type="button" class="btn btn-success" ng-show="listItem.id === ToDo.editMode" ng-click="ToDo.saveEdit(listItem.id)">Save</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="ToDo.deleteItem(listItem.id)">Delete</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input placeholder="Title" ng-model="ToDo.newListItem.title"></input></td>
+            <td><input placeholder="Description" ng-model="ToDo.newListItem.description"></input></td>
+            <td><button type="button" class="btn btn-primary" ng-click="ToDo.addItem()">Add Item</button></td>
+            <td><button type="button" class="btn btn-primary" ng-click=ToDo.noEditMode()>Cancel Editing</button></td>
+        </tr>
+
+    </tbody>
+</table> -->
